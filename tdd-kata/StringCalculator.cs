@@ -1,4 +1,6 @@
-﻿namespace tdd_kata
+﻿using System.Linq;
+
+namespace tdd_kata
 {
     public class StringCalculator
     {
@@ -7,7 +9,8 @@
             if(string.IsNullOrEmpty(input))
             return 0;
 
-            return int.Parse(input);
+            var numbers = input.Split(',');
+            return numbers.Sum(int.Parse);
         }
     }
 }
