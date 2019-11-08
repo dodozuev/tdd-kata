@@ -6,10 +6,10 @@ namespace tdd_kata
     {
         public int Add(string input)
         {
-            if(string.IsNullOrEmpty(input))
-            return 0;
+            if (string.IsNullOrEmpty(input))
+                return 0;
 
-            var numbers = input.Split(',');
+            var numbers = input.Split(new[] {',', '\n'});
             return numbers.Sum(int.Parse);
         }
     }
