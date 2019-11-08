@@ -37,5 +37,13 @@ namespace tdd_kata.Tests
             var result = sut.Add("1\n2");
             result.Should().Be(3);
         }
+
+        [Fact]
+        public void WhenDifferentlyDelimited_ShouldReturnSum()
+        {
+            var sut = new StringCalculator();
+            var result = sut.Add("1\n2,3");
+            result.Should().Be(6);
+        }
     }
 }
