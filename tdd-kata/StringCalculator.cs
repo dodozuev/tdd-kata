@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace tdd_kata
 {
@@ -9,8 +10,10 @@ namespace tdd_kata
             if (string.IsNullOrEmpty(input))
                 return 0;
 
-            var numbers = input.Split(new[] {',', '\n'});
-            return numbers.Sum(int.Parse);
+            var numbers = input.Split(new[] {',', '\n'}).Select(int.Parse);
+            if (numbers.Any(n => n < 0))
+                throw new ArgumentException("Negatives are not allowed");
+            return numbers.Sum();
         }
     }
 }

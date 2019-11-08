@@ -29,7 +29,7 @@ namespace tdd_kata.Tests
             var result = sut.Add("10,20");
             result.Should().Be(30);
         }
-        
+
         [Fact]
         public void WhenTwoNewLineDelimited_ShouldReturnSum()
         {
@@ -44,6 +44,14 @@ namespace tdd_kata.Tests
             var sut = new StringCalculator();
             var result = sut.Add("1\n2,3");
             result.Should().Be(6);
+        }
+
+        [Fact]
+        public void WhenNegatives_ShouldThrowArgumentException()
+        {
+            var sut = new StringCalculator();
+            var act = new Action(() => sut.Add("-1,2,-3"));
+            act.Should().Throw<ArgumentException>();
         }
     }
 }
